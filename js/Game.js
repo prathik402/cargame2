@@ -63,13 +63,16 @@ class Game {
         index = index + 1 ;
 
         //position the cars a little away from each other in x direction
-        x = x + 200;
+        x = x + 230;
         //use data form the database to display the cars in y direction
-        y = displayHeight - allPlayers[plr].distance;
+        y = (displayHeight - 33) - allPlayers[plr].distance;
         cars[index-1].x = x;
         cars[index-1].y = y;
 
         if (index === player.index){
+          stroke(10);
+          fill("red");
+          ellipse(x,y,60,60)
           cars[index - 1].shapeColor = "red";
           camera.position.x = displayWidth/2;
           camera.position.y = cars[index-1].y;
@@ -86,7 +89,7 @@ class Game {
       player.update();
     }
 
-    if(player.distance > 3860){
+    if(player.distance > 4100){
       gameState = 2;
     }
    
